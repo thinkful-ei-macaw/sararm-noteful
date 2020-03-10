@@ -1,8 +1,17 @@
+main {
+  text-align: center;
+
+}
+
+header {
+  text-align: center;
+}
+
 .sidebar {
   width: 300px;
 }
 
-.content {
+main {
   display: flex;
   position: relative;
 }

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
+
 
 class Folder extends Component {
   render() {
@@ -6,8 +8,8 @@ class Folder extends Component {
     let folderList = 
       folders.map(item => {
         return (
-          <li key={item.id} className="folder" onClick={this.props.folderClick}>
-            <p>Folder: {item.name}</p>
+          <li key={item.id} className="folder">
+            <Link to={"/folder/" + item.id }>Folder: {item.name}</Link>
           </li>
         )
       })
@@ -15,6 +17,7 @@ class Folder extends Component {
     return(
       <ul>
         {folderList}
+        <button>Add Folder</button>
       </ul>
     )
   }
