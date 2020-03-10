@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Folder from './FolderList'
+import FolderList from './FolderList'
 import NoteList from './NoteList'
 import './Main.css';
 import { Route, Link } from 'react-router-dom'
@@ -9,13 +9,12 @@ class Main extends Component {
   state = {
     folders: this.props.store.folders,
     notes: this.props.store.notes,
-    folderFilter: false,
-    filterId: '',
-    expanded: false,
-    expandedId: '',
   }
 
     render() {
+
+      console.log(this.props)
+
       return(
         <div className="App">
           <header className="App-header">
@@ -28,19 +27,24 @@ class Main extends Component {
 
             <Route exact path='/' 
               render={(routeProps) =>
-              <Folder {...routeProps} folders={this.state.folders}/>
+              <FolderList {...routeProps} folders={this.state.folders}
+              notes={this.state.notes}
+              />
               }
             />
 
             <Route exact path='/folder/:folderId'
               render={(routeProps) =>
-              <Folder {...routeProps} folders={this.state.folders}/>
+              <FolderList {...routeProps} folders={this.state.folders}
+              notes={this.state.notes}
+              />
               }
             />
             
             <Route exact path='/note/:noteId'
               render={(routeProps) =>
-              <Folder {...routeProps} folders={this.state.notes} 
+              <FolderList {...routeProps} folders={this.state.folders} 
+              notes={this.state.notes} 
               />
               }
             />

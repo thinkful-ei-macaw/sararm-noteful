@@ -7,7 +7,6 @@ class FilterNote extends Component{
     let filterBy = this.props.filterId;
     let filterNotes = notes.filter(item =>
       item.folderId === filterBy)
-      console.log('lsdkfj')
     return this.props.formatNotes(filterNotes)
   }
 

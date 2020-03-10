@@ -15,9 +15,8 @@ class NoteList extends Component {
 
   formatNotes = (notes) => {
     let expId = this.props.match.params.noteId;
-    console.log(expId)
     let allNotes = notes.map(item => {
-      return (
+      return ( 
       <li className="note" key={item.id}>
         <h2>
           <Link to={'/note/'+ item.id}>{item.name}</Link>
@@ -32,16 +31,15 @@ class NoteList extends Component {
   }
 
   render() {
-    console.log(this.props)
     return(
       <ul>
         {
           this.props.match.params.folderId ? 
             <FilterNote 
-              notes={this.props.notes} filter={this.props.filter} filterId={this.props.match.params.folderId} formatDate={this.formatDate} formatNotes={this.formatNotes}/>
+              notes={this.props.notes}  filterId={this.props.match.params.folderId} formatDate={this.formatDate} formatNotes={this.formatNotes}/>
         : 
           <Note 
-            notes={this.props.notes} filter={this.props.filter} formatDate={this.formatDate} formatNotes={this.formatNotes}/>
+            notes={this.props.notes} formatDate={this.formatDate} formatNotes={this.formatNotes}/>
         }
 
         
